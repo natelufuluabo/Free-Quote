@@ -30,3 +30,8 @@ export const bestVariableAtom = atom({
     key:'bestVariable',
     default : DEFAULT_PRODUCT_STATE
 });
+
+export const languageAtom = atom({
+    key:'language',
+    default: false
+})

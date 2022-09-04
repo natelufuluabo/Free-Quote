@@ -112,3 +112,10 @@ export const DEFAULT_STATE_APPLICATION = {
     productId : 0,
     createdAt : ''
 }
+
+export interface IFormInputs {
+  firstName : string,
+  lastName : string,
+  email :  string,
+  phone : string
+}
