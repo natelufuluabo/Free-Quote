@@ -108,7 +108,12 @@ export type SetApplication = {
 export const DEFAULT_STATE_APPLICATION = {
     id : '',
     type : "NEW",
-    applicants : [],
+    applicants : [{
+      firstName : '',
+      lastName : '',
+      email : '',
+      phone : ''
+    }],
     productId : 0,
     createdAt : ''
 }
@@ -119,3 +124,17 @@ export interface IFormInputs {
   email :  string,
   phone : string
 }
+
+export interface setCreatedApplication {
+  id: string;
+  type: string;
+  applicants: {
+      firstName: string;
+      lastName: string;
+      email: string;
+      phone: string;
+  }[];
+  productId: number;
+  createdAt: string;
+}
+
