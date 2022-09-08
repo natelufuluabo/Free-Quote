@@ -3,9 +3,10 @@ import { SetterOrUpdater } from "recoil";
 import { Application, Product, DEFAULT_HEADERS, setCreatedApplication } from '../../Utilities/utilities';
 
 export const handleClick = (
-    setProductSelected : SetterOrUpdater<Product>, product : Product,
+    product : Product,
     setCreatedApplication : SetterOrUpdater<setCreatedApplication>,
-    setProblemWithApplicationCreation : React.Dispatch<React.SetStateAction<boolean>>
+    setProblemWithApplicationCreation : React.Dispatch<React.SetStateAction<boolean>>,
+    setShowBox: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     const createApplication = async () => {
         try {
@@ -17,9 +18,11 @@ export const handleClick = (
             console.log(applicationCreated);
             setCreatedApplication(applicationCreated);
             setProblemWithApplicationCreation(false);
+            setShowBox(true);
         } catch (error) {
             if (error instanceof Error) {
                 setProblemWithApplicationCreation(true);
+                setShowBox(true);
             }
         }
     }

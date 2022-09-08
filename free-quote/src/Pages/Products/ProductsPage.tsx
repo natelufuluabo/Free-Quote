@@ -10,7 +10,6 @@ const ProductsPage = () => {
     const [problemWithApplicationCreation, setProblemWithApplicationCreation] = useState(false);
     const [bestFixed, setBestFixed] = useRecoilState(bestFixedAtom);
     const [bestVariable, setBestVariable] = useRecoilState(bestVariableAtom);
-    const [showBox, setShowBox] = useState(false);
     useEffect(() => {
         downloadProducts(
             setBestFixed, setBestVariable, 
@@ -19,9 +18,8 @@ const ProductsPage = () => {
         )
     },[])
     const contentUploading = handleContentDisplaying(
-        downloadProductErrorMessage, problemWithApplicationCreation, 
+        problemWithApplicationCreation, 
         setProblemWithApplicationCreation, productLoading,
-        showBox, setShowBox
       );
     return (
         <>

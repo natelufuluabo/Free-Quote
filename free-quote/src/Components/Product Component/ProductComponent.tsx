@@ -5,11 +5,12 @@ import { productSelectedAtom, applicationAtom } from '../../State Management/ato
 import { handleClick } from './Utilities';
 
 interface propsType {
+    setShowBox: React.Dispatch<React.SetStateAction<boolean>>,
     product : Product,
     setProblemWithApplicationCreation : React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ProductComponent = ({ product, setProblemWithApplicationCreation } : propsType) => {
+const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreation } : propsType) => {
     const [productSelected, setProductSelected] = useRecoilState(productSelectedAtom);
     const [createdApplication, setCreatedApplication] = useRecoilState(applicationAtom);
     return (
@@ -24,8 +25,8 @@ const ProductComponent = ({ product, setProblemWithApplicationCreation } : props
             <button 
                 onClick={() => { 
                         handleClick(
-                            setProductSelected, product, setCreatedApplication, 
-                            setProblemWithApplicationCreation
+                            product, setCreatedApplication, 
+                            setProblemWithApplicationCreation, setShowBox
                         )
                         setProductSelected(product);
                     }
