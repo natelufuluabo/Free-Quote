@@ -1,6 +1,6 @@
 import React from "react";
 import requestDetails from '../../Utilities/requestDetails';
-import RequestCardComponent from "../../Components/Request Card Component copy/RequestCardComponent";
+import RequestCardComponent from "../../Components/Request Card Component/RequestCardComponent";
 
 const GetAQuotePage = () => {
     const [newMortgage, renewal, refinance] = requestDetails;

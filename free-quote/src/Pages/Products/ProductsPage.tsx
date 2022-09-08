@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ProductComponent from "../../Components/Product Component copy/ProductComponent";
+import ProductComponent from "../../Components/Product Component/ProductComponent";
 import { useRecoilState } from "recoil";
 import { bestFixedAtom, bestVariableAtom } from "../../State Management/atoms";
-import { downloadProducts } from './Utilities';
+import { downloadProducts, handleContentDisplaying } from './Utilities';
 
 const ProductsPage = () => {
     const [productLoading, setProductLoading] = useState(true);
@@ -10,6 +10,7 @@ const ProductsPage = () => {
     const [problemWithApplicationCreation, setProblemWithApplicationCreation] = useState(false);
     const [bestFixed, setBestFixed] = useRecoilState(bestFixedAtom);
     const [bestVariable, setBestVariable] = useRecoilState(bestVariableAtom);
+    const [showBox, setShowBox] = useState(false);
     useEffect(() => {
         downloadProducts(
             setBestFixed, setBestVariable, 
@@ -17,23 +18,15 @@ const ProductsPage = () => {
             setProductLoading
         )
     },[])
+    const contentUploading = handleContentDisplaying(
+        downloadProductErrorMessage, problemWithApplicationCreation, 
+        setProblemWithApplicationCreation, productLoading,
+        showBox, setShowBox
+      );
     return (
-        <div className="productspage-container">
-            <div className="productspage-headlines">
-                <span className="productspage-headline1">Find the Best Mortgage</span>
-                <span className="productspage-headline2">Rates in Canada</span>
-            </div>
-            <div className="productspage-products">
-                <ProductComponent 
-                    product={bestFixed}
-                    setProblemWithApplicationCreation={setProblemWithApplicationCreation}
-                />
-                <ProductComponent 
-                    product={bestVariable}
-                    setProblemWithApplicationCreation={setProblemWithApplicationCreation}
-                />
-            </div>
-        </div>
+        <>
+            {contentUploading}
+        </>
     )
 }
 
