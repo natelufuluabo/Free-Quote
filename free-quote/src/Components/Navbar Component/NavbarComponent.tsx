@@ -9,8 +9,9 @@ const NavbarComponent = () => {
                 <Link to='/'>
                     <button>Get a quote</button>
                 </Link>
-                <button>Applications</button>
-                <span className="navbar-language">FR</span>
+                <Link to='/applications'>
+                    <button>Applications</button>
+                </Link>
             </span>
         </nav>
     )
