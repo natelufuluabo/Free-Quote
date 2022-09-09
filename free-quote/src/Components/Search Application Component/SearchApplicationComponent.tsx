@@ -1,47 +1,37 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { DEFAULT_HEADERS, Application } from '../../Utilities/utilities';
+import { useRecoilState } from "recoil";
+import { appRequestedAtom } from "../../State Management/atoms";
+import { Application } from '../../Utilities/utilities';
+import { getApplications, filteredApplications } from "./Utilities";
 
-const SearchApplicationComponent = () => {
+interface propsType {
+    setAppFound: React.Dispatch<React.SetStateAction<boolean>>
+    productError : boolean
+}
+
+const SearchApplicationComponent = ({ setAppFound, productError } : propsType) => {
     const [applications, setApplications] = useState<Application[]>([]);
     const [userPhone, setUserID] = useState('');
+    const [errorFindingApp, setErrorFindingApp] = useState('');
+    const [appRequested, setAppRequested] = useRecoilState(appRequestedAtom);
     const handleClick = (evt:React.MouseEvent<HTMLButtonElement>) => {
         evt.preventDefault();
-        const filteredApplications = () => {
-            for (let application of applications) {
-                const applicants = application.applicants;
-                for (let i = 0; i < applicants.length; i++) {
-                    if (applicants[i].phone === userPhone) console.log(application);
-                }
-            }
-        }
-        filteredApplications();
+        filteredApplications(applications, setErrorFindingApp, userPhone, setAppRequested, setAppFound, productError);
     }
     useEffect(() => {
-        const getApplications = async () => {
-            try {
-                const applications : Application[] = (await axios.get('https://nesto-fe-exam.vercel.app/api/applications', {
-                    headers : {
-                      ...DEFAULT_HEADERS
-                    }
-                })).data
-                setApplications(applications);
-            } catch (error) {
-                if (error instanceof Error) {
-                    console.log(error.message)
-                }
-            }
-        }
-        getApplications();
+        getApplications(setApplications, applications);
     }, [])
     return (
         <div>
-            <span>Please enter your phone Number</span>
+            <span>Please enter your phone number</span>
             <form>
-                <input 
-                    value={userPhone}
-                    onChange={(evt) => setUserID(evt.target.value)}
-                />
+                <div>
+                    <input 
+                        value={userPhone}
+                        onChange={(evt) => setUserID(evt.target.value)}
+                    />
+                    {errorFindingApp && <span>{errorFindingApp}</span>}
+                </div>
                 <button onClick={handleClick}>Search</button>
             </form>
         </div>

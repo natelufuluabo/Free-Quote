@@ -34,4 +34,9 @@ export const bestVariableAtom = atom({
 export const languageAtom = atom({
     key:'language',
     default: false
+});
+
+export const appRequestedAtom = atom({
+    key:'appRequested',
+    default : DEFAULT_STATE_APPLICATION
 })
