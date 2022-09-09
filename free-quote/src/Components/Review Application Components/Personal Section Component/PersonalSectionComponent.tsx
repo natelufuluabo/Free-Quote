@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
 import * as EmailValidator from 'email-validator';
 import { useRecoilState } from 'recoil';
 import { userInputAtom } from "../../../State Management/atoms";
