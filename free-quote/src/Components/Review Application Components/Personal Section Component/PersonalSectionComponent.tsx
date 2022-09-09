@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import * as EmailValidator from 'email-validator';
 import { useRecoilState } from 'recoil';
 import { userInputAtom } from "../../../State Management/atoms";
-
-interface IFormInputs {
-    firstName : string,
-    lastName : string,
-    email :  string,
-    phone : string
-}
+import { handleEmailValidation, handlePhoneValidation } from './Utilities'
 
 const PersonalSectionComponent = () => {
     const [firstEditingRequested, setFirstEditingRequested] = useState(false);
@@ -17,6 +11,7 @@ const PersonalSectionComponent = () => {
     const [phoneEditingRequested, setPhoneEditingRequested] = useState(false);
     const [emailValidated, setEmailValidated] = useState(false);
     const [phoneValidated, setPhoneValidated] = useState(false);
+    const [error, setError] = useState(false)
     const [userInput, setUserInput] = useRecoilState(userInputAtom);
     
     const handleChange = (evt : React.ChangeEvent<HTMLInputElement>) => {
@@ -24,27 +19,9 @@ const PersonalSectionComponent = () => {
         const newObject = {...userInput, [evt.target.name] : evt.target.value};
         setUserInput(newObject);
     }
-    const handleEmailValidation = () => {
-        if (!EmailValidator.validate(userInput.email)) {
-            setEmailValidated(false)
-            setEmailEditingRequested(true);
-        } else {
-            setEmailValidated(true)
-            setEmailEditingRequested(false);
-        }
-    }
-    const handlePhoneValidation = () => {
-        if (userInput.phone.length < 10 || userInput.phone.length > 10) {
-            setPhoneValidated(false)
-            setPhoneEditingRequested(true);
-        } else {
-            setPhoneValidated(true)
-            setPhoneEditingRequested(false);
-        }
-    }
     return (
-        <form>
-            <label className="form-title">Please confirm identity</label>
+        <div>
+            <label className="form-title">Review application</label>
             <div className='form-section'>
                 <label>First Name</label>
                 <div className="label-error-container">
@@ -126,9 +103,9 @@ const PersonalSectionComponent = () => {
                         />
                         <button onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
                             evt.preventDefault();
-                            handleEmailValidation()
+                            handleEmailValidation({ userInput, setEmailValidated, setError, setEmailEditingRequested })
                         }}>Save</button>
-                        {!emailValidated && <p className="error-message">Invalid email address</p>}
+                        {error && <p className="error-message">Invalid email address</p>}
                     </div>
             </div>
             </div>
@@ -155,14 +132,13 @@ const PersonalSectionComponent = () => {
                         />
                         <button onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
                             evt.preventDefault();
-                            handlePhoneValidation()
+                            handlePhoneValidation({ userInput, setPhoneValidated, setError, setPhoneEditingRequested })
                         }}>Save</button>
-                        {!phoneValidated && <p className="error-message">Invalid phone number</p>}
+                        {error && <p className="error-message">Invalid phone number</p>}
                     </div>
                 </div>
             </div>
-            <button className="form-submit-button" type='submit'>Submit</button>
-        </form>
+        </div>
     )
 }
 
