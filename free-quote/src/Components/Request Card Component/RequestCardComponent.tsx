@@ -1,4 +1,5 @@
 import React from "react";
+import '../../Pages/Get A Quote /GetAQuotePage.css';
 import { Link } from 'react-router-dom';
 
 interface propsType {
@@ -8,12 +9,10 @@ interface propsType {
 
 const RequestCardComponent = ({ requestType, description } : propsType) => {
     return (
-        <div className="request-card-container">
-            <Link to='/products'>
-                <span className="request-card-type">{requestType}</span>
-                <span className="request-card-description">{description}</span>
-            </Link>
-        </div>
+        <Link className="request-card-container" to='/products'>
+            <span className="request-card-type">{requestType}</span>
+            <span className="request-card-description">{description}</span>
+        </Link>
     )
 }
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ProductComponent from "../../Components/Product Component/ProductComponent";
 import { useRecoilState } from "recoil";
 import { bestFixedAtom, bestVariableAtom } from "../../State Management/atoms";
 import { downloadProducts, handleContentDisplaying } from './Utilities';

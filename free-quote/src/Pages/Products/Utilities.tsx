@@ -3,7 +3,6 @@ import { SetterOrUpdater } from "recoil";
 import { DEFAULT_HEADERS, Product } from "../../Utilities/utilities";
 import LoadingComponent from "../../Components/Loading Component/LoadingComponent";
 import ProductPageComponent from "../../Components/Product Page Component/ProductPageComponent";
-import { Link } from "react-router-dom";
 
 export const downloadProducts = async (
     setBestFixed : SetterOrUpdater<Product>,

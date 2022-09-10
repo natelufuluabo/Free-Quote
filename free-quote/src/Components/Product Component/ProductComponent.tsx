@@ -1,4 +1,5 @@
 import React from "react";
+import './ProductComponent.css'
 import { Product } from "../../Utilities/utilities";
 import { useRecoilState } from 'recoil';
 import { productSelectedAtom, applicationAtom } from '../../State Management/atoms';
@@ -17,7 +18,7 @@ const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreati
         <div className="product-container">
             <span className="product-description">
                 <span className="product-title">BEST {product.type}</span>
-                <span className="product-term">{product.term}</span>
+                <span className="product-term">{product.term[0]} Years</span>
             </span>
             <span className="product-name" >{product.name}</span>
             <span className="product-rate" >{product.bestRate}%</span>

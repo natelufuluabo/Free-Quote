@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './ProductPageComponent.css'
 import ProductComponent from "../Product Component/ProductComponent";
 import { bestFixedAtom, bestVariableAtom } from "../../State Management/atoms";
 import { useRecoilValue } from "recoil";
@@ -16,8 +17,8 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
     return (
         <div className="productspage-container">
             <div className="productspage-headlines">
-                <span className="productspage-headline1">Find the Best Mortgage</span>
-                <span className="productspage-headline2">Rates in Canada</span>
+                <span className="productspage-headline1">Find the <b>Best</b> Mortgage</span>
+                <span className="productspage-headline2"><b>Rates</b> in Canada</span>
             </div>
             <div className="productspage-products">
                 <ProductComponent 
@@ -33,19 +34,19 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
             </div>
             {
                 (showBox && problemWithApplicationCreation === false) && 
-                <div>
-                    <div>
+                <div className="afterclick-container">
+                    <div className="afterclickmessage-container">
                         <span>Application Successfully created</span>
-                        <Link to='/contact' onClick={() => setShowBox(false)} >Continue</Link>
+                        <Link className="afterclickmessage-buton" to='/contact' onClick={() => setShowBox(false)} >Continue</Link>
                     </div>
                 </div>
             }
             {
                 (showBox && problemWithApplicationCreation) &&
-                <div>
-                    <div>
+                <div className="afterclick-container">
+                    <div className="afterclickmessage-container">
                         <span>Failed to create application</span>
-                        <span onClick={() => setShowBox(false)} >Retry</span>
+                        <button onClick={() => setShowBox(false)} >Retry</button>
                     </div>
                 </div>
             }

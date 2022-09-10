@@ -1,4 +1,5 @@
 import React from "react";
+import './GetAQuotePage.css';
 import requestDetails from '../../Utilities/requestDetails';
 import RequestCardComponent from "../../Components/Request Card Component/RequestCardComponent";
 

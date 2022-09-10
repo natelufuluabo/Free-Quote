@@ -1,0 +1,54 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.5rem 20rem;
+    box-shadow: 0 0 150rem 0.01rem rgba(85, 85, 85, 0.267);
+}
+
+.navbar-logo, .letter-o {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+}
+
+.letter-o {
+    color: #3B9AE1;
+}
+
+.navbar-buttons-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar-getaquote-button, 
+.navbar-applications-button {
+    padding: .7rem 2.5rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.navbar-getaquote-button {
+    border: 0.1rem solid #3B9AE1;    
+    background-color: #3B9AE1;
+    color: #fff;
+}
+
+.navbar-getaquote-button:hover {
+    background-color: #0e4c7a;
+    border: 0.1rem solid #0e4c7a; 
+}
+
+.navbar-applications-button {
+    border: 0.1rem solid #3B9AE1;
+    background-color: #fff;
+    color:  #3B9AE1;
+}
+
+.navbar-applications-button:hover {
+    border: 0.1rem solid #0e4c7a;
+    color:  #0e4c7a;
+}

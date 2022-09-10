@@ -1,0 +1,44 @@
+.getaquote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+    padding: 0rem 20rem;
+    height: 50vh;
+}
+
+.getaquote-headline {
+    align-self: flex-start;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3B9AE1;
+}
+
+.getaquote-requests-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.request-card-container:link, 
+.request-card-container:visited {
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background-color: #fff;
+    padding: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-decoration: none;
+    border-radius: 2rem;
+    color: #444;
+}
+
+.request-card-type {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #3B9AE1;
+}
