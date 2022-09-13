@@ -1,4 +1,5 @@
 import React from "react";
+import './ViewApplication.css';
 import { useRecoilValue } from "recoil";
 import { appRequestedAtom } from "../../State Management/atoms";
 import { Product } from "../../Utilities/utilities";
@@ -14,10 +15,10 @@ const ViewApplicationComponent = ({ products } : propsType) => {
     const handleRenderingPersonal = handlePersonalRendering(appInfo);
     const handleRenderingProduct = handleProductRendering(productInfo);
     return (
-        <>
+        <div className="view-application-container">
             {handleRenderingPersonal}
             {handleRenderingProduct}
-        </>
+        </div>
     )
 }
 

@@ -1,0 +1,37 @@
+.view-application-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 50%;
+    border: .2rem solid #3B9AE1;
+    border-radius: 1.5rem;
+    background-color: #fff;
+    padding: 2rem;
+}
+
+.info-section-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.info-section-container label {
+    color: #3B9AE1;
+    font-weight: 600;
+    align-self: center;
+    margin-bottom: .5rem;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: .15rem solid #3B9AE1;
+    padding-bottom: 1rem;
+}
+
+.info-section label {
+    color: #444;
+    font-weight: normal;
+}

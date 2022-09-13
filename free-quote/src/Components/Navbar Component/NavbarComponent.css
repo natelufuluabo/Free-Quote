@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding: 3.5rem 20rem;
     box-shadow: 0 0 150rem 0.01rem rgba(85, 85, 85, 0.267);
+    background-color: #fff;
 }
 
 .navbar-logo, .letter-o {

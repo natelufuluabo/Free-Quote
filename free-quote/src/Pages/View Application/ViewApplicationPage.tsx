@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './ViewApplication.css';
 import { Product } from "../../Utilities/utilities";
 import SearchApplicationComponent from "../../Components/Search Application Component/SearchApplicationComponent";
 import ViewApplicationComponent from "../../Components/View Application Componet/ViewApplicationComponent";
@@ -12,7 +13,7 @@ const ViewApplicationPage = () => {
         getProducts(setProducts, setProductError);
     }, [])
     return (
-        <div className="viewapplicationpage-container">
+        <div className="view-application-page-container">
             <SearchApplicationComponent setAppFound={setAppFound} productError={productError} />
             {
                 (appFound && !productError) && <ViewApplicationComponent products={products} />

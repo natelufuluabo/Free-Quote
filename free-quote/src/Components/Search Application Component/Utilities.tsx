@@ -24,16 +24,16 @@ export const getApplications = async (
 export const filteredApplications = (
     applications: Application[], 
     setErrorFindingApp: React.Dispatch<React.SetStateAction<string>>,
-    userPhone: string, setAppRequested: SetterOrUpdater<Application>,
+    userPhoneReformatted: string, setAppRequested: SetterOrUpdater<Application>,
     setAppFound: React.Dispatch<React.SetStateAction<boolean>>,
     productError : boolean
 ) => {
-    if (userPhone.length < 10 || userPhone.length > 10) return setErrorFindingApp('Invalid phone number');
+    if (userPhoneReformatted.length < 10 || userPhoneReformatted.length > 10) return setErrorFindingApp('Invalid phone number');
     if (applications.length === 0 || productError) return setErrorFindingApp('Server doesnt respond. Retry');
     for (let application of applications) {
         const applicants = application.applicants;
         for (let i = 0; i < applicants.length; i++) {
-            if (applicants[i].phone === userPhone && userPhone) {
+            if (applicants[i].phone === userPhoneReformatted) {
                 setErrorFindingApp('');
                 setAppRequested(application);
                 setAppFound(true);
