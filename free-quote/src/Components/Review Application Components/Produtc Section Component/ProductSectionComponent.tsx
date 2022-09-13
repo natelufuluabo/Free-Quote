@@ -1,4 +1,5 @@
 import React from "react";
+import './ProductSectionComponent.css'
 import { useRecoilValue } from "recoil";
 import { productSelectedAtom } from "../../../State Management/atoms";
 
@@ -8,14 +9,10 @@ const ProductSectionComponent = () => {
         <div className="product-info-container">
             <div className="product-name-container">
                 <label className="product-label">Product Name</label>
-                <span
-                    className="product-edit-container"
-                >
-                    <span className="product-name-review">{productSelected.name}</span>
-                </span>
+                <span className="product-info">{productSelected.name}</span>
             </div>
             <div className="product-type-container">
-                <label className="product-label">Product type</label>
+                <label className="product-label">Product Type</label>
                 <span className="product-info">{productSelected.type}</span>
             </div>
             <div className="product-rate-container">

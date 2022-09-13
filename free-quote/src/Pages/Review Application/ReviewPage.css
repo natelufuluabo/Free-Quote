@@ -1,0 +1,24 @@
+.review-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 5rem 20rem;
+    align-items: center;
+}
+
+.review-page-title {
+    font-size: 3rem;
+    color: #3B9AE1;
+    font-weight: 600;
+    letter-spacing: .1rem;
+}
+
+.review-page-button {
+    border: none;
+    padding: 1.5rem 5rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    background-color: #3B9AE1;
+    color: #fff;
+    cursor: pointer;
+}

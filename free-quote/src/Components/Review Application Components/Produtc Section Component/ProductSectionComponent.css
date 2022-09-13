@@ -1,0 +1,19 @@
+.product-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 50vw;
+    font-size: 2rem;
+}
+
+.product-name-container, 
+.product-type-container,
+.product-rate-container,
+.product-lender-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: .2rem solid #3B9AE1;
+    padding-bottom: 2rem;
+}

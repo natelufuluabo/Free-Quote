@@ -1,4 +1,5 @@
 import React from "react";
+import './Form.css';
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as EmailValidator from 'email-validator';
 import { useRecoilState } from 'recoil';
@@ -26,35 +27,44 @@ const Form = ({ setFormValidated } : propsType) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <label className="form-title">Please confirm identity</label>
             <div className='form-section'>
-                <label>First Name</label>
-                <div className="label-error-container">
+                <div className="label-entry-container">
+                    <label className="label-title">First Name</label>
                     <input
                         {...register("firstName", { required: true })}
                     />
+                </div>
+                <div className="label-error-container">
+                    <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.firstName && <p className="error-message">Required</p>}
                 </div>
             </div>
             <div className='form-section'>
-                <label>Last Name</label>
-                <div className="label-error-container">
+                <div className="label-entry-container">
+                    <label className="label-title">Last Name</label>
                     <input
                         {...register("lastName", { required: true })}
                     />
+                </div>
+                <div className="label-error-container">
+                    <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.lastName && <p className="error-message">Required</p>}
                 </div>
             </div>
             <div className='form-section'>
-                <label>Email</label>
-                <div className="label-error-container">
+                <div className="label-entry-container">
+                    <label className="label-title">Email</label>
                     <input
-                        {...register("email", { required: true, validate : value => EmailValidator.validate(value) })}
+                        {...register("email", { required: true })}
                     />
+                </div>
+                <div className="label-error-container">
+                    <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.email && <p className="error-message">Invalid email address</p>}
                 </div>
             </div>
             <div className='form-section'>
-                <label>Phone</label>
-                <div className="label-error-container">
+                <div className="label-entry-container">
+                    <label className="label-title">Phone</label>
                     <input 
                         {...register(
                             "phone", 
@@ -65,10 +75,13 @@ const Form = ({ setFormValidated } : propsType) => {
                         }
                         onKeyPress={(evt) => { if (!/[0-9]/.test(evt.key)) evt.preventDefault(); }}
                     />
+                </div>
+                <div className="label-error-container">
+                    <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.phone && <p className="error-message">Invalid phone number</p>}
                 </div>
             </div>
-            <button className="form-submit-button" type='submit'>Submit</button>
+            <button className="form-submit-button" type='submit'>Save info</button>
         </form>
     )
 }

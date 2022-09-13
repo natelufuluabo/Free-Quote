@@ -8,18 +8,18 @@ interface parametersEmailValidation {
         phone: string;
     },
     setEmailValidated: React.Dispatch<React.SetStateAction<boolean>>,
-    setError: React.Dispatch<React.SetStateAction<boolean>>,
+    setErrorEmail: React.Dispatch<React.SetStateAction<boolean>>,
     setEmailEditingRequested: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const handleEmailValidation = ({ userInput, setEmailValidated, setError, setEmailEditingRequested } : parametersEmailValidation) => {
+export const handleEmailValidation = ({ userInput, setEmailValidated, setErrorEmail, setEmailEditingRequested } : parametersEmailValidation) => {
     if (!EmailValidator.validate(userInput.email)) {
         setEmailValidated(false);
-        setError(true);
+        setErrorEmail(true);
         setEmailEditingRequested(true);
     } else {
         setEmailValidated(true);
-        setError(false);
+        setErrorEmail(false);
         setEmailEditingRequested(false);
     }
 }
@@ -32,18 +32,18 @@ interface parametersPhoneValidation {
         phone: string;
     },
     setPhoneValidated: React.Dispatch<React.SetStateAction<boolean>>,
-    setError: React.Dispatch<React.SetStateAction<boolean>>,
+    setErrorPhone: React.Dispatch<React.SetStateAction<boolean>>,
     setPhoneEditingRequested: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const handlePhoneValidation = ({ userInput, setPhoneValidated, setError, setPhoneEditingRequested } : parametersPhoneValidation) => {
+export const handlePhoneValidation = ({ userInput, setPhoneValidated, setErrorPhone, setPhoneEditingRequested } : parametersPhoneValidation) => {
     if (userInput.phone.length < 10 || userInput.phone.length > 10) {
         setPhoneValidated(false);
-        setError(true);
+        setErrorPhone(true);
         setPhoneEditingRequested(true);
     } else {
         setPhoneValidated(true);
-        setError(false);
+        setErrorPhone(false);
         setPhoneEditingRequested(false);
     }
 }

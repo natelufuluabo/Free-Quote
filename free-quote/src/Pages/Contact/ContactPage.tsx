@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './ContactPage.css';
 import Form from "../../Components/Form/Form";
 import SelectedProductComponent from "../../Components/Selected Product Component/SelectedProductComponent";
 import { Link } from 'react-router-dom';
@@ -9,9 +10,11 @@ const ContactPage = () => {
         <div className="contactpage-container">
             <SelectedProductComponent />
             <Form setFormValidated={setFormValidated} />
-            {formValidated && <div>
-                <span>Application successfully updated</span>
-                <Link to='/review'>Review Application</Link>
+            {formValidated && <div className="afterclick-container">
+                <div className="afterclickmessage-container">
+                    <span>Application successfully updated</span>
+                    <Link className="afterclickmessage-success-button" to='/review'>Review Application</Link>
+                </div>
             </div>}
         </div>  
     )

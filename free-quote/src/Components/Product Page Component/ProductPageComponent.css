@@ -56,8 +56,9 @@
     margin-top: 20rem;
 }
 
-.afterclickmessage-buton:link, 
-.afterclickmessage-buton:visited {
+.afterclickmessage-success-button:link, 
+.afterclickmessage-success-button:visited,
+.afterclickmessage-failed-button {    
     cursor: pointer;
     text-decoration: none;
     color: #3B9AE1;
@@ -65,4 +66,5 @@
     background-color: #fff;
     border-radius: 1rem;
     font-size: 2rem;
+    border: none;
 }

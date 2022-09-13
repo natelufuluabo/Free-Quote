@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './PersonalSectionComponent.css';
 import * as EmailValidator from 'email-validator';
 import { useRecoilState } from 'recoil';
 import { userInputAtom } from "../../../State Management/atoms";
@@ -11,7 +12,8 @@ const PersonalSectionComponent = () => {
     const [phoneEditingRequested, setPhoneEditingRequested] = useState(false);
     const [emailValidated, setEmailValidated] = useState(false);
     const [phoneValidated, setPhoneValidated] = useState(false);
-    const [error, setError] = useState(false)
+    const [errorPhone, setErrorPhone] = useState(false);
+    const [errorEmail, setErrorEmail] = useState(false)
     const [userInput, setUserInput] = useRecoilState(userInputAtom);
     
     const handleChange = (evt : React.ChangeEvent<HTMLInputElement>) => {
@@ -20,123 +22,97 @@ const PersonalSectionComponent = () => {
         setUserInput(newObject);
     }
     return (
-        <div>
-            <label className="form-title">Review application</label>
-            <div className='form-section'>
-                <label>First Name</label>
-                <div className="label-error-container">
-                    <div
-                        style={{
-                            display : firstEditingRequested ? 'none' : 'block'
-                        }}
-                    >
+        <div className="personal-section-container">
+            <div className='personal-section-section'>
+                <label className="personal-section-label">First Name</label>
+                {   !firstEditingRequested && 
+                    <div className="edit-container">
                         <span>{userInput.firstName}</span>
-                        <span onClick={(evt : React.MouseEvent<HTMLSpanElement>) => {
-                                setFirstEditingRequested(true) 
-                            }}
-                        >
-                            Edit
-                        </span>
+                        <span className="edit-button" onClick={() => setFirstEditingRequested(true)}>Edit</span>
                     </div>
-                    <div 
-                        style={{
-                            display : firstEditingRequested ? 'block' : 'none'
-                        }}
-                    >
+                }
+                {   firstEditingRequested &&
+                    <div className="edit-container">
                         <input
                             name="firstName"
                             onChange={handleChange}
                         />
-                        <button onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
+                        <button className="save-button" onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
                             evt.preventDefault();
                             setFirstEditingRequested(false)
                         }}>Save</button>
                     </div>
-                </div>
+                }
             </div>
-            <div className='form-section'>
-                <label>Last Name</label>
-                <div className="label-error-container">
-                    <div
-                        style={{
-                            display : lastEditingRequested ? 'none' : 'block'
-                        }}
-                    >
+            <div className='personal-section-section'>
+                <label className="personal-section-label">Last Name</label>
+                {   !lastEditingRequested && 
+                    <div className="edit-container">
                         <span>{userInput.lastName}</span>
-                        <span onClick={() => setLastEditingRequested(true)}>Edit</span>
+                        <span className="edit-button" onClick={() => setLastEditingRequested(true)}>Edit</span>
                     </div>
-                    <div 
-                        style={{
-                            display : lastEditingRequested ? 'block' : 'none'
-                        }}
-                    >
+                }
+                {   lastEditingRequested &&
+                    <div className="edit-container">
                         <input
                             name="lastName"
                             onChange={handleChange}
                         />
-                        <button onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
+                        <button className="save-button" onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
                             evt.preventDefault();
                             setLastEditingRequested(false)
                         }}>Save</button>
                     </div>
-                </div>
+                }
             </div>
-            <div className='form-section'>
-                <label>Email</label>
-                <div className="label-error-container">
-                    <div
-                        style={{
-                            display : emailEditingRequested ? 'none' : 'block'
-                        }}
-                    >
+            <div className='personal-section-section'>
+                <label className="personal-section-label">Email</label>
+                {   !emailEditingRequested &&
+                    <div className="edit-container">
                         <span>{userInput.email}</span>
-                        <span onClick={() => setEmailEditingRequested(true)}>Edit</span>
+                        <span className="edit-button" onClick={() => setEmailEditingRequested(true)}>Edit</span>
                     </div>
-                    <div
-                        style={{
-                            display : emailEditingRequested ? 'block' : 'none'
-                        }}
-                    >
+                }
+                {   emailEditingRequested && 
+                    <div className="edit-container">
                         <input
+                            style={{
+                                border : errorEmail ? '.1rem solid red' : '.1rem solid #3B9AE1'
+                            }}
                             name="email"
                             onChange={handleChange}
                         />
-                        <button onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
+                        <button  className="save-button" onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
                             evt.preventDefault();
-                            handleEmailValidation({ userInput, setEmailValidated, setError, setEmailEditingRequested })
+                            handleEmailValidation({ userInput, setEmailValidated, setErrorEmail, setEmailEditingRequested })
                         }}>Save</button>
-                        {error && <p className="error-message">Invalid email address</p>}
                     </div>
+                }
             </div>
-            </div>
-            <div className='form-section'>
-                <label>Phone</label>
-                <div className="label-error-container">
-                    <div
-                        style={{
-                            display : phoneEditingRequested ? 'none' : 'block'
-                        }}
-                    >
+            <div className='personal-section-section'>
+                <label className="personal-section-label">Phone</label>
+                {   !phoneEditingRequested && 
+                    <div className="edit-container">
                         <span>{userInput.phone}</span>
-                        <span onClick={() => setPhoneEditingRequested(true)}>Edit</span>
+                        <span className="edit-button" onClick={() => setPhoneEditingRequested(true)}>Edit</span>
                     </div>
-                    <div
-                        style={{
-                            display : phoneEditingRequested ? 'block' : 'none'
-                        }}
-                    >
+                }
+                {   phoneEditingRequested &&
+                    <div className="edit-container">
                         <input
+                            style={{
+                                border : errorPhone ? '.1rem solid red' : '.1rem solid #3B9AE1'
+                            }}
                             name="phone"
                             onChange={handleChange}
                             onKeyPress={(evt) => { if (!/[0-9]/.test(evt.key)) evt.preventDefault(); }}
                         />
-                        <button onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
+                        <button className="save-button" onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
                             evt.preventDefault();
-                            handlePhoneValidation({ userInput, setPhoneValidated, setError, setPhoneEditingRequested })
+                            handlePhoneValidation({ userInput, setPhoneValidated, setErrorPhone, setPhoneEditingRequested })
                         }}>Save</button>
-                        {error && <p className="error-message">Invalid phone number</p>}
                     </div>
-                </div>
+                }
             </div>
         </div>
     )

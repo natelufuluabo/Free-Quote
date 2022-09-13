@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './ReviewPage.css'
 import axios from "axios";
 import { userInputAtom, applicationAtom } from "../../State Management/atoms";
 import { useRecoilValue } from "recoil";
@@ -29,10 +30,11 @@ const ReviewPage = () => {
         updateApplication();
     }
     return (
-        <div className="reviewpage-container">
+        <div className="review-page-container">
+            <label className="review-page-title">Review application</label>
             <PersonalSectionComponent />
             <ProductSectionComponent />
-            <button onClick={handleClick}>submit</button>
+            <button className="review-page-button" onClick={handleClick}>Confirm</button>
             {
                 showBox && 
                 <div>
