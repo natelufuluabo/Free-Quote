@@ -138,7 +138,7 @@ export interface setCreatedApplication {
   createdAt: string;
 }
 
-export const normalizeInput = (value:string) => {
+export const formatForStyling = (value:string) => {
   // return nothing if no value
   if (!value) return value; 
 
@@ -156,6 +156,6 @@ export const normalizeInput = (value:string) => {
   return `(${currentValue.slice(0, 3)}) ${currentValue.slice(3, 6)}-${currentValue.slice(6, 10)}`; 
 };
 
-export const reformatInput = (value:string) => {
+export const reformatforSubmission = (value:string) => {
   return `${value.slice(1,4)}${value.slice(6,9)}${value.slice(10)}`
 }

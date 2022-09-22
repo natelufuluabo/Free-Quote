@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import './Form.css';
 import { useForm, SubmitHandler } from "react-hook-form";
-import * as EmailValidator from 'email-validator';
 import { useRecoilState } from 'recoil';
 import { userInputAtom } from "../../State Management/atoms";
+import { formatForStyling, reformatforSubmission } from "../../Utilities/utilities";
 
 interface IFormInputs {
     firstName : string,
@@ -17,10 +17,14 @@ interface propsType {
 }
 
 const Form = ({ setFormValidated } : propsType) => {
-    const { register, formState: { errors }, handleSubmit } = useForm<IFormInputs>();
+    const { register, formState: { errors }, handleSubmit, setValue } = useForm<IFormInputs>();
     const [userInput, setUserInput] = useRecoilState(userInputAtom);
     const onSubmit: SubmitHandler<IFormInputs> = data => {
-        setUserInput({...data});
+        // Reformat phone number to standard 
+        const reformattedPhoneNumber = reformatforSubmission(data.phone);
+        // Make sure the object submitted contains the phone reformatted
+        const newObject = {...data, phone : reformattedPhoneNumber};
+        setUserInput({...newObject});
         setFormValidated(true);
     };
     return (
@@ -69,11 +73,12 @@ const Form = ({ setFormValidated } : propsType) => {
                         {...register(
                             "phone", 
                             { required : true, pattern : /[0-9]/, 
-                                maxLength : 10, minLength : 10,
+                                maxLength : 14, minLength : 14,
                             }
                             )
                         }
                         onKeyPress={(evt) => { if (!/[0-9]/.test(evt.key)) evt.preventDefault(); }}
+                        onChange={(evt) => setValue("phone", formatForStyling(evt.target.value))}
                     />
                 </div>
                 <div className="label-error-container">
@@ -87,3 +92,7 @@ const Form = ({ setFormValidated } : propsType) => {
 }
 
 export default Form;
+
+function formState(formState: any) {
+    throw new Error("Function not implemented.");
+}

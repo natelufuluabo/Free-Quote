@@ -1,5 +1,5 @@
 import React from "react";
-import { Application, Product } from '../../Utilities/utilities';
+import { Application, Product, formatForStyling } from '../../Utilities/utilities';
 
 export const handlePersonalRendering = (appInfo: Application) => {
     const applicantsInfo = appInfo.applicants
@@ -21,7 +21,7 @@ export const handlePersonalRendering = (appInfo: Application) => {
                 </div>
                 <div className="info-section">
                     <label>Phone</label>
-                    <label>{applicant.phone}</label>
+                    <label>{formatForStyling(applicant.phone)}</label>
                 </div>
             </div>
         )
@@ -47,7 +47,7 @@ export const handleProductRendering = (productInfo : Product[]) => {
                 </div>
                 <div className="info-section">
                     <label>Term Length</label>
-                    <label>{product.term}</label>
+                    <label>{product.term[0]} Years</label>
                 </div>
                 <div className="info-section">
                     <label>Lender</label>

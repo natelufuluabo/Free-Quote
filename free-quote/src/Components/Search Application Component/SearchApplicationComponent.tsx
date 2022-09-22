@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './SearchApplication.css';
 import { useRecoilState } from "recoil";
 import { appRequestedAtom } from "../../State Management/atoms";
-import { Application, normalizeInput, reformatInput } from '../../Utilities/utilities';
+import { Application, formatForStyling, reformatforSubmission } from '../../Utilities/utilities';
 import { getApplications, filteredApplications } from "./Utilities";
 
 interface propsType {
@@ -17,7 +17,7 @@ const SearchApplicationComponent = ({ setAppFound, productError } : propsType) =
     const [appRequested, setAppRequested] = useRecoilState(appRequestedAtom);
     const handleClick = (evt:React.MouseEvent<HTMLButtonElement>) => {
         evt.preventDefault();
-        const userPhoneReformatted = reformatInput(userPhone);
+        const userPhoneReformatted = reformatforSubmission(userPhone);
         filteredApplications(applications, setErrorFindingApp, userPhoneReformatted, setAppRequested, setAppFound, productError);
     }
     useEffect(() => {
@@ -29,7 +29,7 @@ const SearchApplicationComponent = ({ setAppFound, productError } : propsType) =
             <div className="search-application-input-container">
                 <input 
                     value={userPhone}
-                    onChange={(evt) => setUserID(normalizeInput(evt.target.value))}
+                    onChange={(evt) => setUserID(formatForStyling(evt.target.value))}
                 />
                 <div style={{ height : '1.5rem', marginBottom : '.5rem' }}>
                     {errorFindingApp && <span className="error-message">{errorFindingApp}</span>}

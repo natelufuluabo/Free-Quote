@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import './PersonalSectionComponent.css';
-import * as EmailValidator from 'email-validator';
 import { useRecoilState } from 'recoil';
 import { userInputAtom } from "../../../State Management/atoms";
 import { handleEmailValidation, handlePhoneValidation } from './Utilities'
+import { formatForStyling, reformatforSubmission } from "../../../Utilities/utilities";
 
 const PersonalSectionComponent = () => {
     const [firstEditingRequested, setFirstEditingRequested] = useState(false);
@@ -13,13 +13,21 @@ const PersonalSectionComponent = () => {
     const [emailValidated, setEmailValidated] = useState(false);
     const [phoneValidated, setPhoneValidated] = useState(false);
     const [errorPhone, setErrorPhone] = useState(false);
-    const [errorEmail, setErrorEmail] = useState(false)
+    const [errorEmail, setErrorEmail] = useState(false);
+    const [phoneValue, setPhoneValue] = useState('');
     const [userInput, setUserInput] = useRecoilState(userInputAtom);
     
     const handleChange = (evt : React.ChangeEvent<HTMLInputElement>) => {
         if (!evt.target.value) return 
-        const newObject = {...userInput, [evt.target.name] : evt.target.value};
-        setUserInput(newObject);
+        if (evt.target.name === 'phone') {
+            // refomat phone number before submission
+            const standardFormat = reformatforSubmission(evt.target.value)
+            const newObject = {...userInput, [evt.target.name] : standardFormat}
+            setUserInput(newObject);
+        } else {
+            const newObject = {...userInput, [evt.target.name] : evt.target.value};
+            setUserInput(newObject);
+        }
     }
     return (
         <div className="personal-section-container">
@@ -93,7 +101,7 @@ const PersonalSectionComponent = () => {
                 <label className="personal-section-label">Phone</label>
                 {   !phoneEditingRequested && 
                     <div className="edit-container">
-                        <span>{userInput.phone}</span>
+                        <span>{formatForStyling(userInput.phone)}</span>
                         <span className="edit-button" onClick={() => setPhoneEditingRequested(true)}>Edit</span>
                     </div>
                 }
@@ -104,7 +112,12 @@ const PersonalSectionComponent = () => {
                                 border : errorPhone ? '.1rem solid red' : '.1rem solid #3B9AE1'
                             }}
                             name="phone"
-                            onChange={handleChange}
+                            value={phoneValue}
+                            onChange={(evt) => {
+                                handleChange(evt);
+                                // format phone number for styling purpose
+                                setPhoneValue(formatForStyling(evt.target.value));
+                            }}
                             onKeyPress={(evt) => { if (!/[0-9]/.test(evt.key)) evt.preventDefault(); }}
                         />
                         <button className="save-button" onClick={(evt : React.MouseEvent<HTMLButtonElement>) => {
