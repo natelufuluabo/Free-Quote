@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const ContactPage = () => {
     const [formValidated, setFormValidated] = useState(false);
     return (
-        <div className="contactpage-container">
+        <section className="contactpage-container">
             <SelectedProductComponent />
             <Form setFormValidated={setFormValidated} />
             {formValidated && <div className="afterclick-container">
@@ -16,7 +16,7 @@ const ContactPage = () => {
                     <Link className="afterclickmessage-success-button" to='/review'>Review Application</Link>
                 </div>
             </div>}
-        </div>  
+        </section>  
     )
 }
 

@@ -15,10 +15,10 @@ const ViewApplicationComponent = ({ products } : propsType) => {
     const handleRenderingPersonal = handlePersonalRendering(appInfo);
     const handleRenderingProduct = handleProductRendering(productInfo);
     return (
-        <div className="view-application-container">
+        <section className="view-application-container">
             {handleRenderingPersonal}
             {handleRenderingProduct}
-        </div>
+        </section>
     )
 }
 

@@ -24,7 +24,7 @@ const SearchApplicationComponent = ({ setAppFound, productError } : propsType) =
         getApplications(setApplications, applications);
     }, [])
     return (
-        <div className="search-application-container">
+        <section className="search-application-container">
             <span className="search-application-title">Please enter your phone number</span>
             <div className="search-application-input-container">
                 <input 
@@ -36,7 +36,7 @@ const SearchApplicationComponent = ({ setAppFound, productError } : propsType) =
                 </div>
             </div>
             <button className="search-application-button" onClick={handleClick}>Search</button>
-        </div>
+        </section>
     )
 }
 

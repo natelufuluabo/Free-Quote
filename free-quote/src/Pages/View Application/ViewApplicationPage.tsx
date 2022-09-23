@@ -13,12 +13,12 @@ const ViewApplicationPage = () => {
         getProducts(setProducts, setProductError);
     }, [])
     return (
-        <div className="view-application-page-container">
+        <section className="view-application-page-container">
             <SearchApplicationComponent setAppFound={setAppFound} productError={productError} />
             {
                 (appFound && !productError) && <ViewApplicationComponent products={products} />
             }
-        </div>
+        </section>
     )
 }
 

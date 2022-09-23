@@ -3,10 +3,10 @@ import './LoadingComponent.css';
 
 const LoadingComponent = () => {
     return (
-        <div className="waiting-page" >
+        <section className="waiting-page" >
             <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-            <span className="waiting-text" >Please wait...</span>
-      </div>
+            <h3 className="waiting-text" >Please wait...</h3>
+      </section>
     )
 }
 

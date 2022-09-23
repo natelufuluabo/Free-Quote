@@ -30,7 +30,7 @@ const Form = ({ setFormValidated } : propsType) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <label className="form-title">Please confirm identity</label>
-            <div className='form-section'>
+            <section className='form-section'>
                 <div className="label-entry-container">
                     <label className="label-title">First Name</label>
                     <input
@@ -41,8 +41,8 @@ const Form = ({ setFormValidated } : propsType) => {
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.firstName && <p className="error-message">Required</p>}
                 </div>
-            </div>
-            <div className='form-section'>
+            </section>
+            <section className='form-section'>
                 <div className="label-entry-container">
                     <label className="label-title">Last Name</label>
                     <input
@@ -53,8 +53,8 @@ const Form = ({ setFormValidated } : propsType) => {
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.lastName && <p className="error-message">Required</p>}
                 </div>
-            </div>
-            <div className='form-section'>
+            </section>
+            <section className='form-section'>
                 <div className="label-entry-container">
                     <label className="label-title">Email</label>
                     <input
@@ -65,8 +65,8 @@ const Form = ({ setFormValidated } : propsType) => {
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.email && <p className="error-message">Invalid email address</p>}
                 </div>
-            </div>
-            <div className='form-section'>
+            </section>
+            <section className='form-section'>
                 <div className="label-entry-container">
                     <label className="label-title">Phone</label>
                     <input 
@@ -85,7 +85,7 @@ const Form = ({ setFormValidated } : propsType) => {
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.phone && <p className="error-message">Invalid phone number</p>}
                 </div>
-            </div>
+            </section>
             <button className="form-submit-button" type='submit'>Save info</button>
         </form>
     )

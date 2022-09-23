@@ -6,7 +6,7 @@ import { productSelectedAtom } from "../../../State Management/atoms";
 const ProductSectionComponent = () => {
     const productSelected = useRecoilValue(productSelectedAtom);
     return (
-        <div className="product-info-container">
+        <section className="product-info-container">
             <div className="product-name-container">
                 <label className="product-label">Product Name</label>
                 <span className="product-info">{productSelected.name}</span>
@@ -23,7 +23,7 @@ const ProductSectionComponent = () => {
                 <label className="product-label">Lender</label>
                 <span className="product-info">{productSelected.lenderName}</span>
             </div>
-        </div>
+        </section>
     )
 }
 

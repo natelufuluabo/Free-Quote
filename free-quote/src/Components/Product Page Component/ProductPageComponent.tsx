@@ -15,12 +15,12 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
     const bestVariable = useRecoilValue(bestVariableAtom);
     const [showBox, setShowBox] = useState(false);
     return (
-        <div className="productspage-container">
-            <div className="productspage-headlines">
+        <article className="productspage-container">
+            <section className="productspage-headlines">
                 <span className="productspage-headline1">Find the <b>Best</b> Mortgage</span>
                 <span className="productspage-headline2"><b>Rates</b> in Canada</span>
-            </div>
-            <div className="productspage-products">
+            </section>
+            <section className="productspage-products">
                 <ProductComponent 
                     setShowBox={setShowBox}
                     product={bestFixed}
@@ -31,26 +31,26 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
                     product={bestVariable}
                     setProblemWithApplicationCreation={setProblemWithApplicationCreation}
                 />
-            </div>
+            </section>
             {
                 (showBox && problemWithApplicationCreation === false) && 
-                <div className="afterclick-container">
+                <aside className="afterclick-container">
                     <div className="afterclickmessage-container">
                         <span>Application Successfully created</span>
                         <Link className="afterclickmessage-success-button" to='/contact' onClick={() => setShowBox(false)} >Continue</Link>
                     </div>
-                </div>
+                </aside>
             }
             {
                 (showBox && problemWithApplicationCreation) &&
-                <div className="afterclick-container">
+                <aside className="afterclick-container">
                     <div className="afterclickmessage-container">
                         <span>Failed to create application</span>
                         <button onClick={() => setShowBox(false)} className="afterclickmessage-failed-button" >Retry</button>
                     </div>
-                </div>
+                </aside>
             }
-        </div>
+        </article>
     )
 }
 

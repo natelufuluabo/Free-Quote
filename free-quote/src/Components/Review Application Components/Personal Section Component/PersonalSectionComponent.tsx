@@ -30,7 +30,7 @@ const PersonalSectionComponent = () => {
         }
     }
     return (
-        <div className="personal-section-container">
+        <section className="personal-section-container">
             <div className='personal-section-section'>
                 <label className="personal-section-label">First Name</label>
                 {   !firstEditingRequested && 
@@ -127,7 +127,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
             </div>
-        </div>
+        </section>
     )
 }
 

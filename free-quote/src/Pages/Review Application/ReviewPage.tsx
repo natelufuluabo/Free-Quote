@@ -30,8 +30,8 @@ const ReviewPage = () => {
         updateApplication();
     }
     return (
-        <div className="review-page-container">
-            <label className="review-page-title">Review application</label>
+        <section className="review-page-container">
+            <h1 className="review-page-title">Review application</h1>
             <PersonalSectionComponent />
             <ProductSectionComponent />
             <button className="review-page-button" onClick={handleClick}>Confirm</button>
@@ -58,7 +58,7 @@ const ReviewPage = () => {
                     </div>
                 </div>
             }
-        </div>
+        </section>
     )
 }
 

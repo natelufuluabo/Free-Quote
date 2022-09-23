@@ -6,8 +6,8 @@ import RequestCardComponent from "../../Components/Request Card Component/Reques
 const GetAQuotePage = () => {
     const [newMortgage, renewal, refinance] = requestDetails;
     return (
-        <div className="getaquote-container">
-            <span className="getaquote-headline">How can we help you with your mortgage?</span>
+        <section className="getaquote-container">
+            <h1 className="getaquote-headline">How can we help you with your mortgage?</h1>
             <div className="getaquote-requests-container">
                 <RequestCardComponent
                     requestType={newMortgage.request}
@@ -22,7 +22,7 @@ const GetAQuotePage = () => {
                     description={refinance.description} 
                 />
             </div>
-        </div>
+        </section>
     )
 }
 

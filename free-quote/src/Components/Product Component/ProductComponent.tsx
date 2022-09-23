@@ -15,7 +15,7 @@ const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreati
     const [productSelected, setProductSelected] = useRecoilState(productSelectedAtom);
     const [createdApplication, setCreatedApplication] = useRecoilState(applicationAtom);
     return (
-        <div className="product-container">
+        <article className="product-container">
             <span className="product-description">
                 <span className="product-title">BEST {product.type}</span>
                 <span className="product-term">{product.term[0]} Years</span>
@@ -36,7 +36,7 @@ const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreati
             >
                 Get this rate
             </button>
-        </div>
+        </article>
     )
 }
 
