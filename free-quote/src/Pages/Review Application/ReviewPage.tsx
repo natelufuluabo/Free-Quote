@@ -30,7 +30,7 @@ const ReviewPage = () => {
         updateApplication();
     }
     return (
-        <section className="review-page-container">
+        <article className="review-page-container">
             <h1 className="review-page-title">Review application</h1>
             <PersonalSectionComponent />
             <ProductSectionComponent />
@@ -38,12 +38,12 @@ const ReviewPage = () => {
             {
                 showBox && 
                 <div>
-                    <div>
+                    <aside>
                         <div>
                             <span>Thank you for submitting your inquiry.</span> 
                             <span>One of our advisors will be in touch with you soon</span>
                         </div>
-                    </div>
+                    </aside>
                     <Link to='/applications'>
                         <button onClick={() => setShowBox(false)}>View Application</button>
                     </Link>
@@ -52,13 +52,13 @@ const ReviewPage = () => {
             {
                 (!updateSuccessful && showBox) &&
                 <div>
-                    <div>
+                    <aside>
                         <span>Unable to update server</span>
                         <button onClick={() => setShowBox(false)}>Retry</button>
-                    </div>
+                    </aside>
                 </div>
             }
-        </section>
+        </article>
     )
 }
 

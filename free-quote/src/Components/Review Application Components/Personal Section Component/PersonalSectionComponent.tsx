@@ -30,8 +30,8 @@ const PersonalSectionComponent = () => {
         }
     }
     return (
-        <section className="personal-section-container">
-            <div className='personal-section-section'>
+        <article className="personal-section-container">
+            <section className='personal-section-section'>
                 <label className="personal-section-label">First Name</label>
                 {   !firstEditingRequested && 
                     <div className="edit-container">
@@ -40,7 +40,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   firstEditingRequested &&
-                    <div className="edit-container">
+                    <fieldset className="edit-container">
                         <input
                             name="firstName"
                             onChange={handleChange}
@@ -49,10 +49,10 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             setFirstEditingRequested(false)
                         }}>Save</button>
-                    </div>
+                    </fieldset>
                 }
-            </div>
-            <div className='personal-section-section'>
+            </section>
+            <section className='personal-section-section'>
                 <label className="personal-section-label">Last Name</label>
                 {   !lastEditingRequested && 
                     <div className="edit-container">
@@ -61,7 +61,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   lastEditingRequested &&
-                    <div className="edit-container">
+                    <fieldset className="edit-container">
                         <input
                             name="lastName"
                             onChange={handleChange}
@@ -70,10 +70,10 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             setLastEditingRequested(false)
                         }}>Save</button>
-                    </div>
+                    </fieldset>
                 }
-            </div>
-            <div className='personal-section-section'>
+            </section>
+            <section className='personal-section-section'>
                 <label className="personal-section-label">Email</label>
                 {   !emailEditingRequested &&
                     <div className="edit-container">
@@ -82,7 +82,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   emailEditingRequested && 
-                    <div className="edit-container">
+                    <fieldset className="edit-container">
                         <input
                             style={{
                                 border : errorEmail ? '.1rem solid red' : '.1rem solid #3B9AE1'
@@ -94,10 +94,10 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             handleEmailValidation({ userInput, setEmailValidated, setErrorEmail, setEmailEditingRequested })
                         }}>Save</button>
-                    </div>
+                    </fieldset>
                 }
-            </div>
-            <div className='personal-section-section'>
+            </section>
+            <section className='personal-section-section'>
                 <label className="personal-section-label">Phone</label>
                 {   !phoneEditingRequested && 
                     <div className="edit-container">
@@ -106,7 +106,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   phoneEditingRequested &&
-                    <div className="edit-container">
+                    <fieldset className="edit-container">
                         <input
                             style={{
                                 border : errorPhone ? '.1rem solid red' : '.1rem solid #3B9AE1'
@@ -124,10 +124,10 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             handlePhoneValidation({ userInput, setPhoneValidated, setErrorPhone, setPhoneEditingRequested })
                         }}>Save</button>
-                    </div>
+                    </fieldset>
                 }
-            </div>
-        </section>
+            </section>
+        </article>
     )
 }
 
