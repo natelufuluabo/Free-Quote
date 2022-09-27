@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import './NavbarComponent.css';
 import { Link } from 'react-router-dom'
 
 const NavbarComponent = () => {
+    const [menuRequested, setMenuRequested] = useState(false);
     return (
         <header>
             <nav className='navbar'>
@@ -15,7 +16,21 @@ const NavbarComponent = () => {
                         <button className="navbar-applications-button">Applications</button>
                     </Link>
                 </section>
+                <button onClick={() => setMenuRequested(!menuRequested)} className="responsive-button">
+                <i className="fa fa-bars"></i>
+                </button>
             </nav>
+            {   menuRequested &&
+                <div className="responsive-menu-container">
+                    <Link to='/' className="responsive-link">
+                        Get a quote
+                    </Link>
+                    <hr></hr>
+                    <Link to='/applications' className="responsive-link">
+                        Applications
+                    </Link>
+                </div>
+            }
         </header>
     )
 }

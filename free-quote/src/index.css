@@ -13,6 +13,7 @@ body {
 }
 
 #root {
-  height: 110vh;
+  height: 100vh;
+  width: 100%;
   background-color: rgba(66, 66, 66, 0.055);
 }
