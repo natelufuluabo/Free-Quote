@@ -40,7 +40,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   firstEditingRequested &&
-                    <fieldset className="edit-container">
+                    <div className="edit-container">
                         <input
                             name="firstName"
                             onChange={handleChange}
@@ -49,7 +49,7 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             setFirstEditingRequested(false)
                         }}>Save</button>
-                    </fieldset>
+                    </div>
                 }
             </section>
             <section className='personal-section-section'>
@@ -61,7 +61,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   lastEditingRequested &&
-                    <fieldset className="edit-container">
+                    <div className="edit-container">
                         <input
                             name="lastName"
                             onChange={handleChange}
@@ -70,7 +70,7 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             setLastEditingRequested(false)
                         }}>Save</button>
-                    </fieldset>
+                    </div>
                 }
             </section>
             <section className='personal-section-section'>
@@ -82,7 +82,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   emailEditingRequested && 
-                    <fieldset className="edit-container">
+                    <div className="edit-container">
                         <input
                             style={{
                                 border : errorEmail ? '.1rem solid red' : '.1rem solid #3B9AE1'
@@ -94,7 +94,7 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             handleEmailValidation({ userInput, setEmailValidated, setErrorEmail, setEmailEditingRequested })
                         }}>Save</button>
-                    </fieldset>
+                    </div>
                 }
             </section>
             <section className='personal-section-section'>
@@ -106,7 +106,7 @@ const PersonalSectionComponent = () => {
                     </div>
                 }
                 {   phoneEditingRequested &&
-                    <fieldset className="edit-container">
+                    <div className="edit-container">
                         <input
                             style={{
                                 border : errorPhone ? '.1rem solid red' : '.1rem solid #3B9AE1'
@@ -124,7 +124,7 @@ const PersonalSectionComponent = () => {
                             evt.preventDefault();
                             handlePhoneValidation({ userInput, setPhoneValidated, setErrorPhone, setPhoneEditingRequested })
                         }}>Save</button>
-                    </fieldset>
+                    </div>
                 }
             </section>
         </article>

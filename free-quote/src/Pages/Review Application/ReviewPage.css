@@ -22,3 +22,15 @@
     color: #fff;
     cursor: pointer;
 }
+
+@media (max-width : 51.25em) {
+    .review-page-container {
+        padding: 5rem 10rem;
+    }
+}
+
+@media (max-width : 31.25em) {
+    .review-page-container {
+        padding: 5rem 3rem;
+    }
+}

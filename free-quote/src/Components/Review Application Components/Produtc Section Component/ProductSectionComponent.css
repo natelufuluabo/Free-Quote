@@ -17,3 +17,25 @@
     border-bottom: .2rem solid #3B9AE1;
     padding-bottom: 2rem;
 }
+
+@media (max-width : 51.25em) {
+    .product-info-container {
+        width: 100%;
+    }
+}
+
+@media (max-width : 31.25em) {
+    .product-info-container {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width : 17.5em) {
+    .product-name-container,
+    .product-type-container,
+    .product-rate-container,
+    .product-lender-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
