@@ -37,3 +37,9 @@
     font-size: 1.8rem;
     cursor: pointer;
 }
+
+@media (max-width : 90em) {
+    .product-container {
+        text-align: center;
+    }
+}

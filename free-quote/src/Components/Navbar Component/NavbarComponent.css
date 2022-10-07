@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 3.5rem 20rem;
-    box-shadow: 0 0 150rem 0.01rem rgba(85, 85, 85, 0.267);
+    box-shadow: 0 0 150rem 0.01rem rgba(49, 49, 49, 0.39);
     background-color: #fff;
 }
 
@@ -58,7 +58,19 @@
     display: none;
 }
 
-@media (max-width : 60em) {
+@media (min-width : 160em) {
+    .navbar {
+        padding: 3.5rem 50rem;
+    }
+}
+
+@media (max-width : 90em) {
+    .navbar {
+        padding: 3.5rem 10rem;
+    }
+}
+
+@media (max-width : 64em) {
     .navbar {
         padding: 3rem;
     }
@@ -94,7 +106,7 @@
         padding: 2rem 0;
         width: 100%;
         position: absolute;
-        background-color: #333;
+        background-color: rgba(51, 51, 51, 0.849);
         font-size: 2rem;
         z-index: 9999;
     }
