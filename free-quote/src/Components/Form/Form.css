@@ -58,4 +58,10 @@ form {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+    .label-error-container {
+        grid-template-columns: 0 2.5fr;
+    }
+    .form-title {
+        margin-bottom: 1rem;
+    }
 }
