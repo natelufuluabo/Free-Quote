@@ -31,43 +31,43 @@ const Form = ({ setFormValidated } : propsType) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <legend className="form-title">Please confirm identity</legend>
             <section className='form-section'>
-                <fieldset className="label-entry-container">
+                <div className="label-entry-container">
                     <label className="label-title">First Name</label>
                     <input
                         {...register("firstName", { required: true })}
                     />
-                </fieldset>
+                </div>
                 <div className="label-error-container">
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.firstName && <p className="error-message">Required</p>}
                 </div>
             </section>
             <section className='form-section'>
-                <fieldset className="label-entry-container">
+                <div className="label-entry-container">
                     <label className="label-title">Last Name</label>
                     <input
                         {...register("lastName", { required: true })}
                     />
-                </fieldset>
+                </div>
                 <div className="label-error-container">
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.lastName && <p className="error-message">Required</p>}
                 </div>
             </section>
             <section className='form-section'>
-                <fieldset className="label-entry-container">
+                <div className="label-entry-container">
                     <label className="label-title">Email</label>
                     <input
                         {...register("email", { required: true })}
                     />
-                </fieldset>
+                </div>
                 <div className="label-error-container">
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.email && <p className="error-message">Invalid email address</p>}
                 </div>
             </section>
             <section className='form-section'>
-                <fieldset className="label-entry-container">
+                <div className="label-entry-container">
                     <label className="label-title">Phone</label>
                     <input 
                         {...register(
@@ -80,7 +80,7 @@ const Form = ({ setFormValidated } : propsType) => {
                         onKeyPress={(evt) => { if (!/[0-9]/.test(evt.key)) evt.preventDefault(); }}
                         onChange={(evt) => setValue("phone", formatForStyling(evt.target.value))}
                     />
-                </fieldset>
+                </div>
                 <div className="label-error-container">
                     <div style={{ width : '100%', height : '2rem' }}></div>
                     {errors.phone && <p className="error-message">Invalid phone number</p>}

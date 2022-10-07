@@ -33,3 +33,18 @@
     font-weight: bold;
     color: #3B9AE1;
 }
+
+@media (max-width : 64em) {
+    .selected-product-container {
+        justify-self: center;
+    }
+}
+
+@media (max-width : 31.25em) {
+    form {
+        gap: .75rem;
+    }
+    .selected-product-container {
+        text-align: center;
+    }
+}

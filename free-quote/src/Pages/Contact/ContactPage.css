@@ -3,3 +3,33 @@
     grid-template-columns: 1fr 1fr;
     padding: 15rem 20rem;
 }
+
+@media (min-width : 160em) {
+    .contactpage-container {
+        grid-template-columns: .75fr 1fr;
+        padding: 15rem 65rem;
+    }
+}
+
+@media (max-width : 90em) {
+    .contactpage-container {
+        grid-template-columns: .75fr 1fr;
+        padding: 15rem 10rem;
+    }
+}
+
+@media (max-width : 64em) {
+    .contactpage-container {
+        padding-top: 7.5rem ;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width : 31.25em) {
+    .contactpage-container {
+        padding-top: 7.5rem;
+        padding-left: 6.5rem;
+        padding-right: 6.5rem;
+    }
+}

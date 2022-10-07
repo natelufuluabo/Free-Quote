@@ -52,3 +52,10 @@ form {
     font-weight: 600;
     letter-spacing: .1rem;
 }
+
+@media (max-width : 31.25em) {
+    .label-entry-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
