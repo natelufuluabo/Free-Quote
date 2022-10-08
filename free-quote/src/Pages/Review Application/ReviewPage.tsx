@@ -36,25 +36,25 @@ const ReviewPage = () => {
             <ProductSectionComponent />
             <button className="review-page-button" onClick={handleClick}>Confirm</button>
             {
-                showBox && 
-                <div>
-                    <aside>
-                        <div>
+                (updateSuccessful && showBox) && 
+                <div className="overlay">
+                    <aside className="success-container">
+                        <div className="headlines-container">
                             <span>Thank you for submitting your inquiry.</span> 
                             <span>One of our advisors will be in touch with you soon</span>
                         </div>
+                        <Link to='/applications'>
+                            <button className="success-button" onClick={() => setShowBox(false)}>View Application</button>
+                        </Link>
                     </aside>
-                    <Link to='/applications'>
-                        <button onClick={() => setShowBox(false)}>View Application</button>
-                    </Link>
                 </div>
             }
             {
                 (!updateSuccessful && showBox) &&
-                <div>
-                    <aside>
+                <div className="overlay">
+                    <aside className="failure-container">
                         <span>Unable to update server</span>
-                        <button onClick={() => setShowBox(false)}>Retry</button>
+                        <button className="failure-button" onClick={() => setShowBox(false)}>Retry</button>
                     </aside>
                 </div>
             }

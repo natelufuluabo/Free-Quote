@@ -20,7 +20,7 @@
 
 @media (max-width : 64em) {
     .contactpage-container {
-        padding-top: 7.5rem ;
+        padding-top: 10rem ;
         grid-template-columns: 1fr;
         gap: 2rem;
     }
@@ -28,7 +28,6 @@
 
 @media (max-width : 31.25em) {
     .contactpage-container {
-        padding-top: 7.5rem;
         padding-left: 6.5rem;
         padding-right: 6.5rem;
     }

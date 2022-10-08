@@ -10,12 +10,15 @@ const ContactPage = () => {
         <article className="contactpage-container">
             <SelectedProductComponent />
             <Form setFormValidated={setFormValidated} />
-            {formValidated && <div className="afterclick-container">
-                <aside className="afterclickmessage-container">
-                    <span>Application successfully updated</span>
-                    <Link className="afterclickmessage-success-button" to='/review'>Review Application</Link>
-                </aside>
-            </div>}
+            {
+                formValidated && 
+                <div className="afterclick-container">
+                    <aside className="afterclickmessage-success-container">
+                        <span>Application successfully updated</span>
+                        <Link className="afterclickmessage-success-button" to='/review'>Review Application</Link>
+                    </aside>
+                </div>
+            }
         </article>  
     )
 }

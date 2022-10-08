@@ -1,5 +1,5 @@
 .productspage-container {
-    padding: 4rem 20rem 0 20rem;
+    padding: 12rem 20rem 0 20rem;
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -28,7 +28,7 @@
 
 .afterclick-container {
     position: fixed;
-    top: 118px;
+    top: 13rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -40,20 +40,28 @@
     transition: all 0.5s;
 }
 
-.afterclickmessage-container {
+.afterclickmessage-success-container,
+.afterclickmessage-failed-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2rem;
-    font-size: 3rem;
-    background-color: #3B9AE1;
-    padding: 1rem 5rem;
-    color: #fff;
+    font-size: 2rem;
+    background-color: #fff;
+    padding: .5rem 3rem;
     border-radius: 2rem;
     transition: all 0.5s;
-    height: 20%;
-    margin-top: 20rem;
+    height: 7rem;
+}
+
+.afterclickmessage-success-container {
+    color: #38E54D;
+    border: .2rem solid #38E54D;
+}
+
+.afterclickmessage-failed-container {
+    color: red;
+    border: .2rem solid red;
 }
 
 .afterclickmessage-success-button:link, 
@@ -61,17 +69,28 @@
 .afterclickmessage-failed-button {    
     cursor: pointer;
     text-decoration: none;
-    color: #3B9AE1;
+    color: #fff;
     padding: 1rem 3rem;
-    background-color: #fff;
     border-radius: 1rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     border: none;
+}
+
+.afterclickmessage-success-button:link, 
+.afterclickmessage-success-button:visited {
+    background-color: #38E54D;
+}
+
+.afterclickmessage-failed-button {
+    background-color: red;
 }
 
 @media (max-width : 90em) {
     .productspage-products {
         gap: 2.5rem;
+    }
+    .afterclick-container {
+        top: 13rem;
     }
 }
 
@@ -81,7 +100,16 @@
         gap: 3rem;
     }
     .productspage-container {
-        padding-top: 2rem;
+        padding-top: 12rem;
+    }
+    .afterclick-container {
+        top: 12.5rem;
+    }
+}
+
+@media (max-width : 48em) {
+    .afterclick-container {
+        top: 7rem;
     }
 }
 
@@ -99,7 +127,20 @@
 
 @media (min-width : 18.75em) and (max-width : 47.94em) {
     .productspage-container {
+        padding-top: 9rem;
         padding-left: 3rem;
         padding-right: 3rem;
+    }
+    .afterclickmessage-success-container,
+    .afterclickmessage-failed-container {
+        width: 90%;
+        font-size: 1.7rem;
+        padding: .5rem 1.5rem;
+        justify-content: space-between;
+    }
+    .afterclickmessage-success-button:link,
+    .afterclickmessage-success-button:visited,
+    .afterclickmessage-failed-button {
+        text-align: center;
     }
 }

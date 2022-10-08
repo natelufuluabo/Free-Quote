@@ -33,9 +33,9 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
                 />
             </section>
             {
-                (showBox && problemWithApplicationCreation === false) && 
+                (showBox && !problemWithApplicationCreation) && 
                 <aside className="afterclick-container">
-                    <div className="afterclickmessage-container">
+                    <div className="afterclickmessage-success-container">
                         <span>Application Successfully created</span>
                         <Link className="afterclickmessage-success-button" to='/contact' onClick={() => setShowBox(false)} >Continue</Link>
                     </div>
@@ -44,7 +44,7 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
             {
                 (showBox && problemWithApplicationCreation) &&
                 <aside className="afterclick-container">
-                    <div className="afterclickmessage-container">
+                    <div className="afterclickmessage-failed-container">
                         <span>Failed to create application</span>
                         <button onClick={() => setShowBox(false)} className="afterclickmessage-failed-button" >Retry</button>
                     </div>
