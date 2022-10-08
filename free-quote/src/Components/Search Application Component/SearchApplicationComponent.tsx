@@ -26,7 +26,7 @@ const SearchApplicationComponent = ({ setAppFound, productError } : propsType) =
     return (
         <section className="search-application-container">
             <legend className="search-application-title">Please enter your phone number</legend>
-            <fieldset className="search-application-input-container">
+            <div className="search-application-input-container">
                 <input 
                     value={userPhone}
                     onChange={(evt) => setUserID(formatForStyling(evt.target.value))}
@@ -34,7 +34,7 @@ const SearchApplicationComponent = ({ setAppFound, productError } : propsType) =
                 <div style={{ height : '1.5rem', marginBottom : '.5rem' }}>
                     {errorFindingApp && <span className="error-message">{errorFindingApp}</span>}
                 </div>
-            </fieldset>
+            </div>
             <button className="search-application-button" onClick={handleClick}>Search</button>
         </section>
     )

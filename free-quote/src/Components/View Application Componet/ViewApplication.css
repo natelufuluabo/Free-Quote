@@ -35,3 +35,21 @@
     color: #444;
     font-weight: normal;
 }
+
+@media (min-width : 160em) {
+    .view-application-container {
+        width: 30%;
+    }
+}
+
+@media (max-width : 75.25em) {
+    .view-application-container {
+        width: 100%;
+    }
+}
+
+@media (max-width : 35em) {
+    .view-application-container {
+        width: 100%;
+    }
+}
