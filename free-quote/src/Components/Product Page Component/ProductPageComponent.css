@@ -27,7 +27,7 @@
 }
 
 .afterclick-container {
-    position: fixed;
+    position: absolute;
     top: 13rem;
     bottom: 0;
     left: 0;

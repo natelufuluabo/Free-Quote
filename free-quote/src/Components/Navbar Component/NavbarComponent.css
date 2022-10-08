@@ -78,12 +78,15 @@
 
 @media (max-width : 48em) {
     html {
-        font-size: 50%;
+        font-size: 52%;
     }
     .navbar {
         display: flex;
         justify-content: space-between;
         padding: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 99999;
     }
     .navbar-buttons-container {
         display: none;
@@ -109,6 +112,7 @@
         background-color: rgba(51, 51, 51, 0.849);
         font-size: 2rem;
         z-index: 9999;
+        top: 6.3rem;
     }
     .responsive-link:link,
     .responsive-link:visited {
