@@ -5,6 +5,7 @@
     gap: 5rem;
     align-items: center;
     position: relative;
+    height: 150vh;
 }
 
 .productspage-headlines {
@@ -27,7 +28,7 @@
 }
 
 .afterclick-container {
-    position: absolute;
+    position: fixed;
     top: 13rem;
     bottom: 0;
     left: 0;

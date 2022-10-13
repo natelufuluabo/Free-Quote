@@ -36,6 +36,9 @@
     color: #fff;
     font-size: 1.8rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 @media (max-width : 90em) {

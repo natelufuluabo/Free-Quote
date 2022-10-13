@@ -6,7 +6,8 @@ export const handleClick = (
     product : Product,
     setCreatedApplication : SetterOrUpdater<setCreatedApplication>,
     setProblemWithApplicationCreation : React.Dispatch<React.SetStateAction<boolean>>,
-    setShowBox: React.Dispatch<React.SetStateAction<boolean>>
+    setShowBox: React.Dispatch<React.SetStateAction<boolean>>,
+    setLoading : React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     const createApplication = async () => {
         try {
@@ -15,12 +16,13 @@ export const handleClick = (
                     ...DEFAULT_HEADERS,
                 }
             })).data
-            console.log(applicationCreated);
+            setLoading(false);
             setCreatedApplication(applicationCreated);
             setProblemWithApplicationCreation(false);
             setShowBox(true);
         } catch (error) {
             if (error instanceof Error) {
+                setLoading(false);
                 setProblemWithApplicationCreation(true);
                 setShowBox(true);
             }

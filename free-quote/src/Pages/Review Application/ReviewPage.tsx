@@ -7,22 +7,27 @@ import { Link } from "react-router-dom";
 import { DEFAULT_HEADERS, Application } from "../../Utilities/utilities";
 import PersonalSectionComponent from "../../Components/Review Application Components/Personal Section Component/PersonalSectionComponent";
 import ProductSectionComponent from "../../Components/Review Application Components/Produtc Section Component/ProductSectionComponent";
+import DualRingComponent from "../../Components/Dual-Ring Component/DualRingComponent";
 
 const ReviewPage = () => {
     const userInput = useRecoilValue(userInputAtom);
     const application = useRecoilValue(applicationAtom);
     const [updateSuccessful, setUpdateSuccessful] = useState(false);
     const [showBox, setShowBox] = useState(false);
+    const [Loading, setLoading] = useState(false);
     const handleClick = () => {
+        setLoading(true);
         const updateApplication = async () => {
             try {
                 const updatedApplication = (await axios.put<Application>(
                     `https://nesto-fe-exam.vercel.app/api/applications/${application.id}`,
                     { applicants : [userInput] }, { headers : DEFAULT_HEADERS }
                 )).data;
+                setLoading(false);
                 setUpdateSuccessful(true);
                 setShowBox(true);
             } catch (error) {
+                setLoading(false);
                 setUpdateSuccessful(false);
                 setShowBox(true);
             }
@@ -34,7 +39,7 @@ const ReviewPage = () => {
             <h1 className="review-page-title">Review application</h1>
             <PersonalSectionComponent />
             <ProductSectionComponent />
-            <button className="review-page-button" onClick={handleClick}>Confirm</button>
+            <button className="review-page-button" onClick={handleClick}>Confirm {Loading && <span><DualRingComponent /></span>}</button>
             {
                 (updateSuccessful && showBox) && 
                 <div className="overlay">

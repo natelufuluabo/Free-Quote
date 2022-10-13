@@ -1,5 +1,6 @@
-import React from "react";
-import './ProductComponent.css'
+import React, { useState } from "react";
+import './ProductComponent.css';
+import DualRingComponent from "../Dual-Ring Component/DualRingComponent";
 import { Product } from "../../Utilities/utilities";
 import { useRecoilState } from 'recoil';
 import { productSelectedAtom, applicationAtom } from '../../State Management/atoms';
@@ -14,6 +15,7 @@ interface propsType {
 const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreation } : propsType) => {
     const [productSelected, setProductSelected] = useRecoilState(productSelectedAtom);
     const [createdApplication, setCreatedApplication] = useRecoilState(applicationAtom);
+    const [Loading, setLoading] = useState(false);
     return (
         <article className="product-container">
             <span className="product-description">
@@ -27,14 +29,16 @@ const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreati
                 onClick={() => { 
                         handleClick(
                             product, setCreatedApplication, 
-                            setProblemWithApplicationCreation, setShowBox
+                            setProblemWithApplicationCreation, setShowBox,
+                            setLoading
                         )
+                        setLoading(true);
                         setProductSelected(product);
                     }
                 } 
                 className="product-selection-button"
             >
-                Get this rate
+                Get this rate {Loading && <span><DualRingComponent /></span>}
             </button>
         </article>
     )
