@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import './ProductComponent.css';
 import DualRingComponent from "../Dual-Ring Component/DualRingComponent";
-import { Product } from "../../Utilities/utilities";
-import { useRecoilState } from 'recoil';
-import { productSelectedAtom, applicationAtom } from '../../State Management/atoms';
-import { handleClick } from './Utilities';
+import { Product, createApplication, setCreatedApplication } from "../../Utilities/utilities";
+import { SetterOrUpdater } from 'recoil';
 
 interface propsType {
     setShowBox: React.Dispatch<React.SetStateAction<boolean>>,
     product : Product,
-    setProblemWithApplicationCreation : React.Dispatch<React.SetStateAction<boolean>>
+    setProblemWithApplicationCreation : React.Dispatch<React.SetStateAction<boolean>>,
+    setCreatedApplication : SetterOrUpdater<setCreatedApplication>,
+    setProductSelected : SetterOrUpdater<Product>,
 }
 
-const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreation } : propsType) => {
-    const [productSelected, setProductSelected] = useRecoilState(productSelectedAtom);
-    const [createdApplication, setCreatedApplication] = useRecoilState(applicationAtom);
+const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreation, setCreatedApplication, setProductSelected } : propsType) => {
     const [Loading, setLoading] = useState(false);
     return (
         <article className="product-container">
@@ -27,10 +25,10 @@ const ProductComponent = ({ setShowBox, product, setProblemWithApplicationCreati
             <span className="product-lender" >{product.lenderName}</span>
             <button 
                 onClick={() => { 
-                        handleClick(
+                        createApplication(
                             product, setCreatedApplication, 
-                            setProblemWithApplicationCreation, setShowBox,
-                            setLoading
+                            setProblemWithApplicationCreation, 
+                            setShowBox, setLoading
                         )
                         setLoading(true);
                         setProductSelected(product);
