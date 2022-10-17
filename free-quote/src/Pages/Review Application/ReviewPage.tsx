@@ -15,8 +15,8 @@ const ReviewPage = () => {
     const [updateSuccessful, setUpdateSuccessful] = useState(false);
     const [showBox, setShowBox] = useState(false);
     const [Loading, setLoading] = useState(false);
+    const [retry, setRetry] = useState(false);
     const handleClick = () => {
-        setLoading(true);
         const updateApplication = async () => {
             try {
                 const updatedApplication = (await axios.put<Application>(
@@ -24,10 +24,12 @@ const ReviewPage = () => {
                     { applicants : [userInput] }, { headers : DEFAULT_HEADERS }
                 )).data;
                 setLoading(false);
+                setRetry(false);
                 setUpdateSuccessful(true);
                 setShowBox(true);
             } catch (error) {
                 setLoading(false);
+                setRetry(false);
                 setUpdateSuccessful(false);
                 setShowBox(true);
             }
@@ -39,7 +41,15 @@ const ReviewPage = () => {
             <h1 className="review-page-title">Review application</h1>
             <PersonalSectionComponent />
             <ProductSectionComponent />
-            <button className="review-page-button" onClick={handleClick}>Confirm {Loading && <span><DualRingComponent /></span>}</button>
+            <button 
+                className="review-page-button" 
+                onClick={() => {
+                    setLoading(true);
+                    handleClick();
+                }}
+            >
+                Confirm {Loading && <span><DualRingComponent /></span>}
+            </button>
             {
                 (updateSuccessful && showBox) && 
                 <div className="overlay">
@@ -59,7 +69,15 @@ const ReviewPage = () => {
                 <div className="overlay">
                     <aside className="failure-container">
                         <span>Unable to update server</span>
-                        <button className="failure-button" onClick={() => setShowBox(false)}>Retry</button>
+                        <button 
+                            className="failure-button"  
+                            onClick={() => {
+                                setRetry(true);
+                                handleClick();
+                            }}
+                        >
+                            Retry {retry && <span><DualRingComponent /></span>}
+                        </button>
                     </aside>
                 </div>
             }
