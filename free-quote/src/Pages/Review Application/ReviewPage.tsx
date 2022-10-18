@@ -19,6 +19,7 @@ const ReviewPage = () => {
     const handleClick = () => {
         const updateApplication = async () => {
             try {
+                // eslint-disable-next-line
                 const updatedApplication = (await axios.put<Application>(
                     `https://nesto-fe-exam.vercel.app/api/applications/${application.id}`,
                     { applicants : [userInput] }, { headers : DEFAULT_HEADERS }

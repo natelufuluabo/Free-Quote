@@ -16,6 +16,7 @@ const ProductPageComponent = ({ problemWithApplicationCreation, setProblemWithAp
     const bestFixed = useRecoilValue(bestFixedAtom);
     const bestVariable = useRecoilValue(bestVariableAtom);
     const [productSelected, setProductSelected] = useRecoilState(productSelectedAtom);
+    // eslint-disable-next-line
     const [createdApplication, setCreatedApplication] = useRecoilState(applicationAtom);
     const [showBox, setShowBox] = useState(false);
     const [Loading, setLoading] = useState(false);
