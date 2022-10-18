@@ -1,11 +1,11 @@
 .productspage-container {
-    padding: 12rem 20rem 0 20rem;
+    padding: 20rem 20rem 0 20rem;
     display: flex;
     flex-direction: column;
     gap: 5rem;
     align-items: center;
     position: relative;
-    height: 150vh;
+    height: 100vh;
 }
 
 .productspage-headlines {
@@ -16,6 +16,7 @@
     font-size: 3.5rem;
     font-weight: 800;
     letter-spacing: 0.1rem;
+    text-align: center;
 }
 
 .productspage-headlines b {
@@ -110,7 +111,7 @@
 
 @media (max-width : 48em) {
     .afterclick-container {
-        top: 7rem;
+        top: 8rem;
     }
 }
 

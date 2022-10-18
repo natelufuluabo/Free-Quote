@@ -3,7 +3,8 @@ import './NavbarComponent.css';
 import { Link } from 'react-router-dom'
 
 const NavbarComponent = () => {
-    const [menuRequested, setMenuRequested] = useState(false);
+    const [menuOpened, setMenuOpened] = useState(false);
+    const [menuClosed, setMenuClosed] = useState(true);
     return (
         <header>
             <nav className='navbar'>
@@ -16,17 +17,52 @@ const NavbarComponent = () => {
                         <button className="navbar-applications-button">Applications</button>
                     </Link>
                 </section>
-                <button onClick={() => setMenuRequested(!menuRequested)} className="responsive-button">
-                <i className="fa fa-bars"></i>
+                <button 
+                    className="responsive-button"
+                >
+                    {
+                        menuClosed && 
+                        <i 
+                            onClick={() => {
+                                setMenuClosed(false);
+                                setMenuOpened(true);
+                            }} 
+                            className="fa fa-bars bars"
+                        >
+                        </i>
+                    }
+                    {
+                        menuOpened && 
+                        <i 
+                            onClick={() => {
+                                setMenuOpened(false);
+                                setMenuClosed(true);
+                            }} 
+                            className="fa-solid fa-xmark cross"
+                        >
+                        </i>
+                    }
                 </button>
             </nav>
-            {   menuRequested &&
+            {   menuOpened &&
                 <div className="responsive-menu-container">
-                    <Link to='/' className="responsive-link">
+                    <Link 
+                        onClick={() => {
+                            setMenuClosed(true);
+                            setMenuOpened(false);
+                        }} 
+                        to='/' className="responsive-link"
+                    >
                         Get a quote
                     </Link>
                     <hr></hr>
-                    <Link to='/applications' className="responsive-link">
+                    <Link 
+                        onClick={() => {
+                            setMenuClosed(true);
+                            setMenuOpened(false);
+                        }} 
+                        to='/applications' className="responsive-link"
+                    >
                         Applications
                     </Link>
                 </div>
