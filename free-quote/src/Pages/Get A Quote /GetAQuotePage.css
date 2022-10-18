@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 2rem;
     padding: 0rem 20rem;
     height: 50vh;
@@ -70,6 +70,8 @@
 
 @media (min-width : 18.75em) and (max-width : 47.94em) {
     .getaquote-container {
-        padding-top: 20rem;
+        height: 100vh;
+        justify-content: flex-start;
+        padding-top: 10rem;
     }
 }
