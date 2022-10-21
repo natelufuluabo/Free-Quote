@@ -87,6 +87,11 @@
     background-color: red;
 }
 
+.error-404 {
+    height: auto;
+    width: 100%;
+}
+
 @media (max-width : 90em) {
     .productspage-products {
         gap: 2.5rem;
